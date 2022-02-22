@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: lightTheme,
         title: 'Finance App',
-        initialRoute: "/",
+        initialRoute: "/home",
         routes: {
-          "/": (context) =>  OnboardingView(),
+          "/": (context) => OnboardingView(),
           "/home": (context) => const HomeView(),
           "/details": (context) => const DetailsView(),
         });
