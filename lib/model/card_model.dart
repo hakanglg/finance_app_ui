@@ -1,5 +1,6 @@
-import 'package:finance_app_ui/core/constants/color_constants.dart';
 import 'package:flutter/material.dart';
+
+import '../core/constants/color_constants.dart';
 
 class Card {
   final Color color;

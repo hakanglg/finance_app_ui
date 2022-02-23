@@ -1,5 +1,5 @@
-import 'package:finance_app_ui/core/base/base_state.dart';
-import 'package:finance_app_ui/views/home/home_view.dart';
+import '../../core/base/base_state.dart';
+import '../home/home_view.dart';
 
 import '../../core/components/column/column.dart';
 import '../../core/components/row/row.dart';

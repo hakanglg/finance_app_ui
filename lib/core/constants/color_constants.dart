@@ -8,4 +8,5 @@ class ColorConstants {
   final governorBay = Color(0xff3A3FBB); //MAIN BLUE
   final wildWatermelon = Color(0xffFF5978);
   final rhino = Color(0xff32356C); // TEXT
+  final transparentBlue = Color(0xff484DC7);
 }

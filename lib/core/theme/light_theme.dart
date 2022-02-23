@@ -4,6 +4,7 @@ import '../constants/color_constants.dart';
 
 ThemeData lightTheme = ThemeData(
   // APPBAR
+
   appBarTheme: AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
   // TEXT
   textTheme: TextTheme(

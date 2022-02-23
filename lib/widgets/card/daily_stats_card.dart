@@ -1,7 +1,8 @@
-import 'package:finance_app_ui/core/base/base_state.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import '../../core/base/base_state.dart';
 
 class DailyStatsCard extends StatelessWidget with BaseState {
   final IconData icon;
@@ -50,6 +51,7 @@ class DailyStatsCard extends StatelessWidget with BaseState {
 
   CircularPercentIndicator buildCirculerIndicatorSection() {
     return CircularPercentIndicator(
+      circularStrokeCap: CircularStrokeCap.round,
       radius: 30.0,
       lineWidth: 6.0,
       percent: .7,

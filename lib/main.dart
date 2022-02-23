@@ -1,3 +1,5 @@
+import 'model/users_model.dart';
+
 import 'core/theme/light_theme.dart';
 import 'views/details/details_view.dart';
 import 'views/home/home_view.dart';
@@ -13,11 +15,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: lightTheme,
         title: 'Finance App',
-        initialRoute: "/home",
-        routes: {
-          "/": (context) => OnboardingView(),
-          "/home": (context) => HomeView(),
-          "/details": (context) => DetailsView(),
-        });
+        home: HomeView(),);
   }
 }
