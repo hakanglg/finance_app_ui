@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class User {
   final int wallet, dailyActiviy, income, expense;

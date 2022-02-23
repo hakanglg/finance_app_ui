@@ -1,20 +1,20 @@
-import 'model/users_model.dart';
-
+import 'package:finance_app_ui/views/onboard/onboard_view.dart';
 import 'core/theme/light_theme.dart';
-import 'views/details/details_view.dart';
-import 'views/home/home_view.dart';
-import 'views/onboard/onboard_view.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  final String title = "Finance App";
+
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: lightTheme,
-        title: 'Finance App',
-        home: HomeView(),);
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme,
+      title: '',
+      home: OnboardingView(),
+    );
   }
 }

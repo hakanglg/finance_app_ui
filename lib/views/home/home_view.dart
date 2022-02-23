@@ -1,23 +1,23 @@
 import '../../core/base/base_state.dart';
 import '../../core/components/column/column.dart';
 import '../../core/components/row/row.dart';
-import '../../core/constants/border_constants.dart';
 import 'home_view_model.dart';
 import '../../widgets/card/daily_stats_card.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:kartal/kartal.dart';
-import 'package:percent_indicator/percent_indicator.dart';
-
 import '../../model/card_model.dart';
 import '../../model/users_model.dart';
 import '../../widgets/linear_progress_bar/custom_linear_progress_bar.dart';
-import '../details/details_view.dart';
 
 part 'home_string_values.dart';
 
+// ignore: must_be_immutable
 class HomeView extends StatelessWidget with BaseState {
   final _HomeStringValues values = _HomeStringValues();
   final HomeViewModel model = HomeViewModel();
+
+  HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -65,7 +65,7 @@ class HomeView extends StatelessWidget with BaseState {
               flex: 3,
               child: buildListViewBuilderSection(),
             ),
-            Spacer(flex: 1)
+            const Spacer(flex: 1)
           ],
         ),
       ),

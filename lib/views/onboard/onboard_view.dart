@@ -1,18 +1,20 @@
 import '../../core/base/base_state.dart';
-import '../home/home_view.dart';
-
 import '../../core/components/column/column.dart';
 import '../../core/components/row/row.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:kartal/kartal.dart';
 
 import 'onboard_view_model.dart';
 
 part 'onboard_string_values.dart';
 
+// ignore: must_be_immutable
 class OnboardingView extends StatelessWidget with BaseState {
   final _OnboardingStringValue values = _OnboardingStringValue();
   final OnboardingViewModel viewModel = OnboardingViewModel();
+
+  OnboardingView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

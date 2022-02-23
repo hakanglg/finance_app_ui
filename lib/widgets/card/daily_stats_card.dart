@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:kartal/kartal.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../core/base/base_state.dart';
 
+// ignore: must_be_immutable
 class DailyStatsCard extends StatelessWidget with BaseState {
   final IconData icon;
   final Color color;
@@ -46,7 +48,6 @@ class DailyStatsCard extends StatelessWidget with BaseState {
         ),
       ),
     );
-    ;
   }
 
   CircularPercentIndicator buildCirculerIndicatorSection() {

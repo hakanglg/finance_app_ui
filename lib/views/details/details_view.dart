@@ -1,20 +1,20 @@
-import '../../core/components/column/column.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:kartal/kartal.dart';
 import '../../core/components/row/row.dart';
-import '../../core/constants/color_constants.dart';
 import '../../widgets/circular_progress_indicator/circular_percent_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../../core/base/base_state.dart';
 import '../../model/users_model.dart';
 
 part 'details_string_values.dart';
 
+// ignore: must_be_immutable
 class DetailsView extends StatelessWidget with BaseState {
   final User user;
   final _DetailsStringValues values = _DetailsStringValues();
   DetailsView({Key? key, required this.user}) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorConstants.governorBay,
@@ -38,9 +38,9 @@ class DetailsView extends StatelessWidget with BaseState {
 
   IconButton buildAppBarLeadingIconButton(BuildContext context) {
     return IconButton(
-        icon: Icon(Icons.arrow_back_ios),
+        icon: const Icon(Icons.arrow_back_ios),
         onPressed: () {
-          context.pop();
+          Navigator.pop(context);
         });
   }
 
