@@ -1,16 +1,9 @@
-# finance_app_ui
+**Finance App UI**
 
-A new Flutter project.
+<img src="https://user-images.githubusercontent.com/58719777/155365947-8475d78c-35d6-4357-b3cb-6f20960c384b.gif" width="400"/>
 
-## Getting Started
+<img src="https://user-images.githubusercontent.com/58719777/155365570-da29123d-975c-46e3-a525-583e41bf2357.png" width="400"/>
+<img src="https://user-images.githubusercontent.com/58719777/155365789-111f7331-7e5d-4a7f-ac08-6915de03e06f.png" width="400"/>
+<img src="https://user-images.githubusercontent.com/58719777/155365669-cd1d1367-2240-4608-aaa1-5b2a4c092071.png" width="400"/>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
