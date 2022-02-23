@@ -17,7 +17,7 @@ class OnboardingView extends StatelessWidget with BaseState {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildTransparantAppbar(),
+      appBar: AppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -29,13 +29,6 @@ class OnboardingView extends StatelessWidget with BaseState {
           Expanded(flex: 6, child: buildImagaAndButtonSection(context))
         ],
       ),
-    );
-  }
-
-  AppBar buildTransparantAppbar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
     );
   }
 

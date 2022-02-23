@@ -37,6 +37,7 @@ dependencies:
   link: ^1.1.0
   kartal: ^1.2.0
   flutter_screenutil: ^5.3.1
+  percent_indicator: ^4.0.0
 
 dev_dependencies:
   flutter_test:
