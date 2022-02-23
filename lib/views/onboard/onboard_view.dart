@@ -86,6 +86,9 @@ class OnboardingView extends StatelessWidget with BaseState {
             primary: colorConstants.wildWatermelon,
             shape: borderConstants.radiusTopLeft),
         onPressed: func,
-        child: Text(values.buttonText));
+        child: Text(
+          values.buttonText,
+          textScaleFactor: 1.6,
+        ));
   }
 }

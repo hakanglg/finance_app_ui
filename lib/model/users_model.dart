@@ -1,28 +1,28 @@
-class User {
-  final int wallet;
-  final int dailyActiviy;
-  final int income;
-  final int expense;
-  final String name;
-  final String image;
+import 'package:flutter/material.dart';
 
-  User(
-      {required this.wallet,
-      required this.dailyActiviy,
-      required this.income,
-      required this.expense,
-      required this.name,
-      required this.image});
+class User {
+  final int wallet, dailyActiviy, income, expense;
+  final String name, image;
+
+  User({
+    required this.wallet,
+    required this.dailyActiviy,
+    required this.income,
+    required this.expense,
+    required this.name,
+    required this.image,
+  });
 }
 
 List<User> users = [
   User(
-      wallet: 23456,
-      dailyActiviy: 4321,
-      income: 1234,
-      expense: 345,
-      name: "Aziz Nesin",
-      image: "assets/images/ic_1.png"),
+    wallet: 23456,
+    dailyActiviy: 4321,
+    income: 1234,
+    expense: 345,
+    name: "Aziz Nesin",
+    image: "assets/images/ic_1.png",
+  ),
   User(
       wallet: 246676,
       dailyActiviy: 21321,
@@ -32,16 +32,9 @@ List<User> users = [
       image: "assets/images/ic_2.png"),
   User(
       wallet: 342544,
-      dailyActiviy: 3125321,
-      income: 1231534,
+      dailyActiviy: 31251,
+      income: 121534,
       expense: 35645,
       name: "Isha Samuels",
       image: "assets/images/ic_3.png"),
-  User(
-      wallet: 423123,
-      dailyActiviy: 4351221,
-      income: 23125,
-      expense: 6789,
-      name: "Arya Cunningham",
-      image: "assets/images/ic_4.png"),
 ];

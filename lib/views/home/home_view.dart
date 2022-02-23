@@ -1,10 +1,14 @@
 import 'package:finance_app_ui/core/base/base_state.dart';
 import 'package:finance_app_ui/core/components/column/column.dart';
 import 'package:finance_app_ui/core/components/row/row.dart';
+import 'package:finance_app_ui/core/constants/border_constants.dart';
+import 'package:finance_app_ui/views/home/home_view_model.dart';
+import 'package:finance_app_ui/widgets/card/daily_stats_card.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
+import '../../model/card_model.dart';
 import '../../model/users_model.dart';
 import '../../widgets/linear_progress_bar/custom_linear_progress_bar.dart';
 
@@ -12,7 +16,7 @@ part 'home_string_values.dart';
 
 class HomeView extends StatelessWidget with BaseState {
   final _HomeStringValues values = _HomeStringValues();
-
+  final HomeViewModel model = HomeViewModel();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,55 +26,64 @@ class HomeView extends StatelessWidget with BaseState {
             children: [
               Expanded(
                 flex: 4,
-                child: MyRow(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      context.emptySizedHeightBoxLow3x,
-                      Expanded(
-                          flex: 1, child: buildWalletTextandAvatar(context)),
-                      Expanded(flex: 4, child: buidLinearProgresesSection())
-                    ],
-                  ),
-                ),
+                child: buildBodySection(context),
               ),
-              Expanded(
-                  flex: 2,
-                  child: Container(
-                    width: context.dynamicWidth(1),
-                    decoration: ShapeDecoration(
-                      shape: borderConstants.radiusOnlyTop,
-                      color: colorConstants.governorBay,
-                    ),
-                    child: MyRow(
-                      child: MyColumn(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                flex: 1, child: buildDailyStatsText(context)),
-                            Expanded(
-                              flex: 4,
-                              child: ListView.builder(
-                                  itemCount: users.length,
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) {
-                                    return Card(
-                                      child: const ListTile(
-                                        title: Text("users[index].name"),
-                                      ),
-                                    );
-                                  }),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ))
+              Expanded(flex: 2, child: buildBottomContainer(context))
             ],
           )),
     );
+  }
+
+  MyRow buildBodySection(BuildContext context) {
+    return MyRow(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          context.emptySizedHeightBoxLow3x,
+          Expanded(flex: 1, child: buildWalletTextandAvatar(context)),
+          Expanded(flex: 4, child: buidLinearProgresesSection())
+        ],
+      ),
+    );
+  }
+
+  Container buildBottomContainer(BuildContext context) {
+    return Container(
+      width: context.dynamicWidth(1),
+      decoration: ShapeDecoration(
+        shape: borderConstants.radiusOnlyTop,
+        color: colorConstants.governorBay,
+      ),
+      child: MyColumn(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+                flex: 2, child: MyRow(child: buildDailyStatsText(context))),
+            Expanded(
+              flex: 3,
+              child: buildListViewBuilderSection(),
+            ),
+            Spacer(flex: 1)
+          ],
+        ),
+      ),
+    );
+  }
+
+  ListView buildListViewBuilderSection() {
+    return ListView.builder(
+        itemCount: cards.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return DailyStatsCard(
+              icon: cards[index].icon,
+              color: cards[index].color,
+              text: cards[index].name,
+              value: users[index].dailyActiviy.toString(),
+              func: () => model.goDetail(context));
+        });
   }
 
   Row buildWalletTextandAvatar(BuildContext context) {
