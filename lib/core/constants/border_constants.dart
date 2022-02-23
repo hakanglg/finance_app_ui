@@ -11,4 +11,8 @@ class BorderConstants {
   final radiusCircular = RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(15.0),
   );
+
+  final radiusOnlyTop = RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30), topRight: Radius.circular(30)));
 }

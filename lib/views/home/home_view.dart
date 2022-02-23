@@ -27,58 +27,9 @@ class HomeView extends StatelessWidget with BaseState {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       context.emptySizedHeightBoxLow3x,
-                      Expanded(flex: 1, child: buildTitleSection(context)),
                       Expanded(
-                          flex: 3,
-                          child: RotatedBox(
-                            quarterTurns: -1,
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: CustomLinearPercentIndicator(
-                                      day: "S",
-                                      color: colorConstants.governorBay,
-                                      percent: 0.34),
-                                ),
-                                Expanded(
-                                  child: CustomLinearPercentIndicator(
-                                      day: "M",
-                                      color: colorConstants.wildWatermelon,
-                                      percent: 0.73),
-                                ),
-                                Expanded(
-                                  child: CustomLinearPercentIndicator(
-                                      day: "T",
-                                      color: colorConstants.wildWatermelon,
-                                      percent: 0.59),
-                                ),
-                                Expanded(
-                                  child: CustomLinearPercentIndicator(
-                                      day: "W",
-                                      color: colorConstants.governorBay,
-                                      percent: 0.4),
-                                ),
-                                Expanded(
-                                  child: CustomLinearPercentIndicator(
-                                      day: "T",
-                                      color: colorConstants.governorBay,
-                                      percent: 0.85),
-                                ),
-                                Expanded(
-                                  child: CustomLinearPercentIndicator(
-                                      day: "F",
-                                      color: colorConstants.wildWatermelon,
-                                      percent: 0.80),
-                                ),
-                                Expanded(
-                                  child: CustomLinearPercentIndicator(
-                                      day: "S",
-                                      color: colorConstants.governorBay,
-                                      percent: 0.31),
-                                ),
-                              ],
-                            ),
-                          ))
+                          flex: 1, child: buildWalletTextandAvatar(context)),
+                      Expanded(flex: 4, child: buidLinearProgresesSection())
                     ],
                   ),
                 ),
@@ -86,10 +37,116 @@ class HomeView extends StatelessWidget with BaseState {
               Expanded(
                   flex: 2,
                   child: Container(
-                    color: colorConstants.governorBay,
+                    width: context.dynamicWidth(1),
+                    decoration: ShapeDecoration(
+                      shape: borderConstants.radiusOnlyTop,
+                      color: colorConstants.governorBay,
+                    ),
+                    child: MyRow(
+                      child: MyColumn(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                                flex: 1, child: buildDailyStatsText(context)),
+                            Expanded(
+                              flex: 4,
+                              child: ListView.builder(
+                                  itemCount: users.length,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Card(
+                                      child: const ListTile(
+                                        title: Text("users[index].name"),
+                                      ),
+                                    );
+                                  }),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ))
             ],
           )),
+    );
+  }
+
+  Row buildWalletTextandAvatar(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [buildTitleSection(context), buildUserAvatar()],
+    );
+  }
+
+  CircleAvatar buildUserAvatar() {
+    return CircleAvatar(
+      child: Image.asset(users[1].image),
+    );
+  }
+
+  Row buildDailyStatsText(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          values.daily,
+          textScaleFactor: 1.7,
+          style: context.textTheme.bodyText2!.copyWith(color: Colors.white),
+        ),
+        context.emptySizedWidthBoxLow,
+        Text(
+          values.stats,
+          textScaleFactor: 1.7,
+          style: context.textTheme.bodyText1!.copyWith(color: Colors.white),
+        ),
+      ],
+    );
+  }
+
+  MyColumn buidLinearProgresesSection() {
+    return MyColumn(
+      child: RotatedBox(
+        quarterTurns: -1,
+        child: Column(
+          children: [
+            Expanded(
+              child: CustomLinearPercentIndicator(
+                  day: "S", color: colorConstants.governorBay, percent: 0.34),
+            ),
+            Expanded(
+              child: CustomLinearPercentIndicator(
+                  day: "M",
+                  color: colorConstants.wildWatermelon,
+                  percent: 0.73),
+            ),
+            Expanded(
+              child: CustomLinearPercentIndicator(
+                  day: "T",
+                  color: colorConstants.wildWatermelon,
+                  percent: 0.59),
+            ),
+            Expanded(
+              child: CustomLinearPercentIndicator(
+                  day: "W", color: colorConstants.governorBay, percent: 0.4),
+            ),
+            Expanded(
+              child: CustomLinearPercentIndicator(
+                  day: "T", color: colorConstants.governorBay, percent: 0.85),
+            ),
+            Expanded(
+              child: CustomLinearPercentIndicator(
+                  day: "F",
+                  color: colorConstants.wildWatermelon,
+                  percent: 0.80),
+            ),
+            Expanded(
+              child: CustomLinearPercentIndicator(
+                  day: "S", color: colorConstants.governorBay, percent: 0.31),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

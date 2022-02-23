@@ -14,7 +14,10 @@ class CustomLinearPercentIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LinearPercentIndicator(
-      leading: Text(day),
+      leading: Text(
+        day,
+        style: context.textTheme.bodyText2!.copyWith(color: Colors.grey[400]),
+      ),
       barRadius: Radius.circular(15),
       backgroundColor: Colors.grey[200],
       lineHeight: 20,
